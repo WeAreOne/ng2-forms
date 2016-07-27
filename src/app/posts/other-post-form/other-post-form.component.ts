@@ -11,6 +11,7 @@ import { Post } from '../shared';
   directives: [ REACTIVE_FORM_DIRECTIVES ]
 })
 export class OtherPostFormComponent {
+  START_TITLE = 'Title: ';
   categories = [ 'Category 1', 'Category 2', 'Category 3', 'Category 4', 'Category 5' ];
   model = new Post(1, 'This is my post title', 'Lorem ipsum dolor sit amet...', this.categories[0], 'My tag');
   submitted = false;
@@ -18,12 +19,19 @@ export class OtherPostFormComponent {
 
   constructor(private fb: FormBuilder) {
     this.postForm = fb.group({
-      title: fb.control(this.model.title, Validators.compose([ Validators.required, Validators.minLength(5) ])),
+      title: fb.control(this.model.title, Validators.compose([ Validators.required, this.titleValidator ])),
       text: fb.control(this.model.text, Validators.required),
       category: fb.control(this.model.category),
       tag: fb.control(this.model.tag)
     })
   }
+
+  // postForm.controls.title.hasError('invalidTitle')
+  titleValidator = (control: FormControl): { [ s: string ]: boolean } => {
+    if (control.value.substring(0, this.START_TITLE.length) !== this.START_TITLE) {
+      return { invalidTitle: true };
+    }
+  };
 
   isValid = (field: FormControl) => field.valid || field.pristine;
 

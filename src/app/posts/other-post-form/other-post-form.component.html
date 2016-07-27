@@ -2,7 +2,7 @@
 <form (ngSubmit)="onSubmit(postForm.value)" [formGroup]="postForm">
   <div class="form-group">
     <label for="title" [class.text-danger]="!isValid(postForm.controls.title)">Title</label>
-    <span [hidden]="isValid(postForm.controls.title)" class="text-danger">is required and must have 5+ characters</span>
+    <span [hidden]="isValid(postForm.controls.title)" class="text-danger">is required and must start with "{{ START_TITLE }}"</span>
     <input type="text" id="title" class="form-control" required
            formControlName="title">
   </div>
