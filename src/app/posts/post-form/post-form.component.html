@@ -1,6 +1,6 @@
 <div class="container">
   <h1>Post Form</h1>
-  <form>
+  <form (ngSubmit)="onSubmit()">
     <div class="form-group">
       <label for="title" [class.text-danger]="!isValid(title)">Title</label>
       <span [hidden]="isValid(title)" class="text-danger">is required</span>
@@ -25,5 +25,6 @@
              [(ngModel)]="model.tag">
     </div>
     <button type="submit" class="btn btn-default">Submit</button>
+    Form has been submitted : {{ submitted }}
   </form>
 </div>
