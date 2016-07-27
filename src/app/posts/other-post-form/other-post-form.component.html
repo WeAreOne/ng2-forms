@@ -1,7 +1,8 @@
 <h1>Other Post Form</h1>
 <form [formGroup]="postForm">
   <div class="form-group">
-    <label for="title">Title</label>
+    <label for="title" [class.text-danger]="!isValid(postForm.controls.title)">Title</label>
+    <span [hidden]="isValid(postForm.controls.title)" class="text-danger">is required</span>
     <input type="text" id="title" class="form-control" required
            formControlName="title">
   </div>
