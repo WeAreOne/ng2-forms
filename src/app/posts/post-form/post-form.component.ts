@@ -20,6 +20,8 @@ export class PostFormComponent {
 
   submitted = false;
 
+  isValid = (field) => field.valid || field.pristine;
+
   onSubmit() { this.submitted = true; }
 
   // Only for testing
