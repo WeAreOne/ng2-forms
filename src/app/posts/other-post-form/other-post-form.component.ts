@@ -25,7 +25,10 @@ export class OtherPostFormComponent {
     })
   }
 
-  onSubmit() { this.submitted = true; }
   isValid = (field: FormControl) => field.valid || field.pristine;
 
+  onSubmit(formValue) {
+    Object.assign(this.model, this.model, formValue);
+    this.submitted = true ;
+  }
 }

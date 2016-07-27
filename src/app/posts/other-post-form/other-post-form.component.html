@@ -1,5 +1,5 @@
 <h1>Other Post Form</h1>
-<form [formGroup]="postForm">
+<form (ngSubmit)="onSubmit(postForm.value)" [formGroup]="postForm">
   <div class="form-group">
     <label for="title" [class.text-danger]="!isValid(postForm.controls.title)">Title</label>
     <span [hidden]="isValid(postForm.controls.title)" class="text-danger">is required</span>
@@ -24,4 +24,5 @@
            formControlName="tag">
   </div>
   <button type="submit" class="btn btn-default">Submit</button>
+  Form has been submitted : {{ submitted }}
 </form>
