@@ -35,6 +35,7 @@ const barrels: string[] = [
 
   // App specific barrels.
   'app',
+  'app/posts/other-post-form',
   'app/posts/post-form',
   'app/posts/shared',
   'app/shared',
