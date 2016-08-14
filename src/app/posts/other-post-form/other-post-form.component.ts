@@ -7,8 +7,7 @@ import { Post } from '../shared';
   moduleId: module.id,
   selector: 'other-post-form',
   templateUrl: 'other-post-form.component.html',
-  styleUrls: ['other-post-form.component.css'],
-  directives: [ REACTIVE_FORM_DIRECTIVES ]
+  styleUrls: ['other-post-form.component.css']
 })
 export class OtherPostFormComponent {
   START_TITLE = 'Title: ';
